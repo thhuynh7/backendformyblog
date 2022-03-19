@@ -13,7 +13,6 @@ const dataService = require('./modules/data-service.js');
 
 const data = dataService(mongoDBConnectionString);
 const app = express();
-app.use(compression());
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -102,6 +101,7 @@ app.delete('/api/posts/:id', (req, res) => {
     });
 });
 
+app.use(compression());
 // Connect to the DB and start the server
 
 data
