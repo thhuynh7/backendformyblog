@@ -8,7 +8,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const cors = require('cors');
-const cors = require('compression');
+const compression = require('compression');
 const dataService = require('./modules/data-service.js');
 
 const data = dataService(mongoDBConnectionString);
