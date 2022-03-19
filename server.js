@@ -13,6 +13,7 @@ const dataService = require('./modules/data-service.js');
 
 const data = dataService(mongoDBConnectionString);
 const app = express();
+app.use(compression());
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -22,7 +23,6 @@ app.use(cors());
 app.options('*', cors());
 
 // Compression (put in near the end)
-app.use(compression());
 
 app.post('/api/posts', (req, res) => {
   data
