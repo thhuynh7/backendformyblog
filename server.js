@@ -16,6 +16,10 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+// app.use(cors({ origin: 'https://www.frontendformyblog.com' }))
+// app.options('/api/posts/:id', cors());
+
+app.options('*', cors());
 
 app.post("/api/posts", (req,res)=>{
     data.addNewPost(req.body).then((msg)=>{
