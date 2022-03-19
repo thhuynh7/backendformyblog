@@ -8,7 +8,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const cors = require('cors');
-const compression = require('compression');
+// const compression = require('compression');
 const dataService = require('./modules/data-service.js');
 
 const data = dataService(mongoDBConnectionString);
@@ -20,7 +20,7 @@ app.use(cors());
 // app.options('/api/posts/:id', cors());
 
 app.options('*', cors());
-
+// app.use(compression());
 // Compression (put in near the end)
 
 app.post('/api/posts', (req, res) => {
@@ -101,7 +101,7 @@ app.delete('/api/posts/:id', (req, res) => {
     });
 });
 
-app.use(compression());
+
 // Connect to the DB and start the server
 
 data
